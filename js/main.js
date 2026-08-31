@@ -1,3 +1,21 @@
+(function () {
+  var script = document.createElement('script');
+  script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+  script.async = true;
+  script.onload = function () {
+    if (window.netlifyIdentity) {
+      netlifyIdentity.on('login', function () {
+        window.location.href = '/admin/';
+      });
+      var hash = window.location.hash;
+      if (hash && (hash.indexOf('invite_token=') > -1 || hash.indexOf('recovery_token=') > -1 || hash.indexOf('confirmation_token=') > -1)) {
+        netlifyIdentity.open();
+      }
+    }
+  };
+  document.head.appendChild(script);
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
@@ -14,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var input = form.querySelector('input[type=email]');
-      var note = form.parentElement.querySelector('.nl-note');
       if (input && input.value) {
         form.innerHTML = '';
         var msg = document.createElement('p');
@@ -26,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Chip filters (Hidden Gems / Itineraries index) — purely visual toggle
   document.querySelectorAll('.chip-row').forEach(function (row) {
     row.querySelectorAll('.chip').forEach(function (chip) {
       chip.addEventListener('click', function () {
