@@ -21,3 +21,4 @@ collections:
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences shown on the Travel Stories index page" }
       - { label: "Most-viewed TikTok URL", name: "tiktok_url", widget: "string", required: false, hint: "Paste the full TikTok video link — that's it, nothing else needed" }
+      - { label: "Body", name: "body", widget: "markdown" }
