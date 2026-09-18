@@ -1,9 +1,9 @@
 ---
-title: "We drove two hours past the house everyone else stops at"
+title: "We skipped Seattle for Aberdeen, and it was the better trip"
 location: "Aberdeen, Washington"
 date: 2026-06-09
 thumbnail: ""
-excerpt: "Everyone we know who's done the Kurt Cobain pilgrimage went straight to the house in Seattle. We skipped it and drove to a rundown bridge in a logging town instead — here's why."
+excerpt: "Everyone we know who's done the Kurt Cobain pilgrimage went straight to the house in Seattle. We skipped it for Aberdeen instead — the yellow house, the bridge, the river — here's why."
 tiktok_url: "https://www.tiktok.com/@mapofthesaints/video/7321407109197761838"
 ---
 
