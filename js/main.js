@@ -32,14 +32,29 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var input = form.querySelector('input[type=email]');
-      if (input && input.value) {
+      var submitBtn = form.querySelector('button[type=submit]');
+      if (!input || !input.value) return;
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Subscribing...'; }
+
+      var body = new URLSearchParams();
+      body.append('fields[email]', input.value);
+      body.append('ml-submit', '1');
+      body.append('anticsrf', 'true');
+
+      fetch('https://assets.mailerlite.com/jsonp/2648666/forms/199165333864449840/subscribe', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString()
+      }).finally(function () {
         form.innerHTML = '';
         var msg = document.createElement('p');
         msg.style.fontFamily = "'IBM Plex Mono', monospace";
         msg.style.fontSize = '.85rem';
         msg.textContent = "Stamped. You're on the list — welcome aboard.";
         form.replaceWith(msg);
-      }
+      });
     });
   });
 
